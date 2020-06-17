@@ -131,6 +131,19 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
 var multiply = function(x, y) {
+    if (y === 0 || x === 0) {
+        return 0;
+    }
+    if (y === 1 || y === -1) {
+        return x;
+    }
+    if (x === 1 || x === -1) {
+        return y;
+    }
+    if (x < 0) {
+        return -(y + multiply(-x - 1, y));
+    }
+    return y + multiply(x - 1, y);
 };
 
 // 13. Write a function that divides two numbers without using the / operator or
